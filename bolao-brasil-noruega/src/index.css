@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background-color: #FBF9F2;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #152018;
+}
+
+/* Split-flap scoreboard digit */
+.flap-digit {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(180deg, #152018 0%, #0B5D3B 100%);
+  border-radius: 6px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.25), 0 10px 20px -10px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.flap-digit::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0,0,0,0.35);
+}
+
+.flap-digit span {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: #F4B740;
+  line-height: 1;
+  font-size: clamp(1.4rem, 5vw, 2.6rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .flap-enter {
+    animation: flapIn 0.35s ease-out;
+  }
+}
+
+@keyframes flapIn {
+  0% { transform: rotateX(90deg); opacity: 0.3; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.stitch-divider {
+  background-image: repeating-linear-gradient(90deg, #E7E1D3 0, #E7E1D3 8px, transparent 8px, transparent 16px);
+  height: 2px;
+}
+
+::selection {
+  background: #F4B740;
+  color: #152018;
+}
+
+:focus-visible {
+  outline: 3px solid #F4B740;
+  outline-offset: 2px;
+}

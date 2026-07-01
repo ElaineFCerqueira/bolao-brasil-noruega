@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Palpites: qualquer pessoa pode ler e criar (registrar seu palpite).
+    // Só o campo statusPagamento pode ser alterado depois (uso do admin).
+    // Observação: como o painel admin usa senha fixa no frontend (sem Firebase
+    // Auth), estas regras não impedem 100% que alguém malicioso altere status
+    // diretamente pela API — apenas reduzem o escopo do que pode ser mudado.
+    // Para um controle mais forte, migrar o admin para Firebase Auth.
+    match /palpites/{palpiteId} {
+      allow read: if true;
+      allow create: if request.resource.data.statusPagamento == 'aguardando'
+                    && request.resource.data.nome is string
+                    && request.resource.data.brasilGols is int
+                    && request.resource.data.adversarioGols is int;
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                      .hasOnly(['statusPagamento']);
+      allow delete: if false;
+    }
+
+    // Contadores de placar usados para garantir o limite de 2 pessoas por placar.
+    match /scoreCounts/{scoreKey} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Configurações gerais (ex.: placar final do jogo).
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
