@@ -63,7 +63,7 @@ export default function App() {
         <div className="rounded-full bg-white border border-line p-1 flex shadow-card max-w-xs mx-auto">
           {[
             { id: 'palpitar', label: 'Palpites' },
-            { id: 'admin', label: 'Organizador(a)' },
+            { id: 'admin', label: 'Organizadora' },
           ].map((tab) => (
             <button
               key={tab.id}
