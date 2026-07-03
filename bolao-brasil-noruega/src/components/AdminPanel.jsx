@@ -21,7 +21,7 @@ function LoginGate({ onEntrar }) {
       onSubmit={handleSubmit}
       className="rounded-2xl bg-white border border-line p-6 shadow-card max-w-sm mx-auto"
     >
-      <h3 className="font-display text-lg text-ink tracking-wide mb-3">Área administrativa</h3>
+      <h3 className="font-display text-lg text-ink tracking-wide mb-3">Painel Adm</h3>
       <label className="block">
         <span className="text-xs font-semibold uppercase tracking-widest text-ink-soft">
           Senha
