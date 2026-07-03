@@ -34,13 +34,13 @@ export default function App() {
       <header className="bg-gradient-to-b from-brasil-green to-brasil-green-deep pb-8 pt-10 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-brasil-gold-soft text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold mb-2">
-            Bolão da torcida
+            Bolão da Família
           </p>
           <h1 className="font-display text-3xl sm:text-5xl text-white tracking-wide leading-tight">
             BRASIL <span className="text-brasil-gold">x</span> {APP_CONFIG.adversario.toUpperCase()}
           </h1>
           <p className="text-brasil-gold-soft text-sm mt-2">
-            05 de julho de 2026 · 17h (horário de Brasília)
+            05 / 06 / 2026 · 17h (horário de Brasília)
           </p>
 
           <div className="mt-6 flex justify-center">
