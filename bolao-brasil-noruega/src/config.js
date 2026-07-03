@@ -8,5 +8,5 @@ export const APP_CONFIG = {
   limitePorPlacar: 2,
   // Senha simples fixa para o painel administrativo.
   // Troque este valor antes de compartilhar o link publicamente.
-  adminPassword: 'zuvinha2026',
+  adminPassword: 'nane26',
 }
